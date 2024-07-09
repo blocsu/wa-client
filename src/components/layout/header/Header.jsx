@@ -4,19 +4,39 @@ import { useAuth } from '../../../hooks/useAuth'
 
 import Hamburger from '../hamburger/Hamburger'
 
+import { SlUser } from 'react-icons/sl'
+import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './Header.module.scss'
 
-const Header = ({ backLink }) => {
+const Header = ({ backLink = '' }) => {
 	/* TODO: React router useHistory */
+
+	const { pathname } = useLocation()
+
+	const navigate = useNavigate()
 
 	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
-			<button onClick={() => {}}>
-				<IoMdArrowBack fill='#fff' fontSize={29} />
-			</button>
-			{/* User profile */}
+			{pathname != '/' ? (
+				<button
+					onClick={() => {
+						navigate(backLink)
+					}}
+				>
+					<IoMdArrowBack fill='#fff' fontSize={29} />
+				</button>
+			) : (
+				<button
+					onClick={() => {
+						navigate('/profile')
+					}}
+				>
+					<SlUser fill='#fff' fontSize={29} />
+				</button>
+			)}
+
 			<Hamburger />
 		</header>
 	)
