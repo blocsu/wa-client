@@ -1,19 +1,20 @@
 import { useState } from 'react'
-import Layout from './components/layout/Layout'
 
-function App() {
+import Layout from '../../layout/Layout'
+
+function Home() {
 	const [count, setCount] = useState(0)
 
 	return (
 		<Layout>
-			<div className='App'>
+			<div className='Home'>
 				<h1>Vite + React</h1>
 				<div className='card'>
-					<button onClick={() => setCount(count => ++count)}>
+					<button onClick={() => setCount(count => count + 1)}>
 						count is {count}
 					</button>
 					<p>
-						Edit <code>src/App.jsx</code> and save to test HMR
+						Edit <code>src/Home.jsx</code> and save to test HMR
 					</p>
 				</div>
 				<p className='read-the-docs'>
@@ -24,4 +25,4 @@ function App() {
 	)
 }
 
-export default App
+export default Home
