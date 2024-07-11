@@ -8,6 +8,7 @@ import { SlUser } from 'react-icons/sl'
 import { useLocation, useNavigate } from 'react-router-dom'
 import styles from './Header.module.scss'
 
+// eslint-disable-next-line react/prop-types
 const Header = ({ backLink = '' }) => {
 	/* TODO: React router useHistory */
 
@@ -30,7 +31,7 @@ const Header = ({ backLink = '' }) => {
 			) : (
 				<button
 					onClick={() => {
-						navigate('/profile')
+						navigate(isAuth ? '/profile' : '/auth')
 					}}
 				>
 					<SlUser fill='#fff' fontSize={29} />
