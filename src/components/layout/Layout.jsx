@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import cn from 'clsx'
 
 import styles from './Layout.module.scss'

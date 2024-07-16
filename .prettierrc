@@ -8,12 +8,13 @@
 	"arrowParens": "avoid",
 	"importOrder": [
 		"<THIRD_PARTY_MODULES>",
-		"/hooks/",
 		"/ui/",
+		"/hooks/",
 		"/screens/",
 		"/components/",
 		"^../(.*)",
-		"^./(.*)"
+		"^./(.*)",
+		"/module.scss/"
 	],
 	"importOrderSeparation": true,
 	"importOrderSortSpecifiers": true
