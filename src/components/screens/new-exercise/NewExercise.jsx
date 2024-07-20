@@ -7,7 +7,7 @@ import Alert from '../../ui/alert/Alert'
 import Button from '../../ui/button/Button'
 import Field from '../../ui/field/Field'
 
-import ExerciseService from '../../../services/exercise.service'
+import ExerciseService from '../../../services/exercise/exercise.service'
 import Layout from '../../layout/Layout'
 
 import styles from './NewExercise.module.scss'
