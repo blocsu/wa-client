@@ -15,7 +15,7 @@ const SelectExercises = ({ control }) => {
 			name='exerciseIds'
 			control={control}
 			render={({ field: { value, onChange } }) => {
-				console.log(value)
+				// console.log(value)
 				return (
 					<ReactSelect
 						classNamePrefix='select2-selection'
