@@ -11,19 +11,11 @@ import ExerciseService from '../../../services/exercise/exercise.service'
 import Layout from '../../layout/Layout'
 
 import styles from './NewExercise.module.scss'
-import { getIconPath } from './image-path.util'
+import { getIconPath } from './icon-path.util'
+
+const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 const NewExercise = () => {
-	const { isSuccess, error, isLoading, mutate } = useMutation(
-		['create mutation'],
-		body =>
-			ExerciseService.create(body, {
-				onSuccess: () => {
-					reset()
-				}
-			})
-	)
-
 	const {
 		register,
 		handleSubmit,
@@ -34,11 +26,19 @@ const NewExercise = () => {
 		mode: 'onChange'
 	})
 
+	const { isSuccess, error, isLoading, mutate } = useMutation(
+		['create exercise'],
+		body => ExerciseService.create(body),
+		{
+			onSuccess: () => {
+				reset()
+			}
+		}
+	)
+
 	const onSubmit = data => {
 		mutate(data)
 	}
-
-	const data = ['chest', 'shoulders', 'biceps', 'legs', 'hit', 'back']
 
 	return (
 		<>
@@ -49,7 +49,7 @@ const NewExercise = () => {
 			/>
 			<div className='wrapper-inner-page'>
 				{error && <Alert type='error' text={error} />}
-				{isSuccess && <Alert text={'Exercise created'} />}
+				{isSuccess && <Alert text='Exercise created' />}
 				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
@@ -69,7 +69,7 @@ const NewExercise = () => {
 						register={register}
 						options={{
 							valueAsNumber: true,
-							validate: value => value > 0 || 'Times must be a number',
+							validate: value => value > 0 || 'Times must be number',
 							required: 'Times is required'
 						}}
 						placeholder='Enter times'
@@ -100,7 +100,7 @@ const NewExercise = () => {
 					/>
 
 					{errors?.iconPath && (
-						<div className='error'> {errors?.iconPath?.message} </div>
+						<div className='error'>{errors?.iconPath?.message}</div>
 					)}
 
 					<Button>Create</Button>
