@@ -18,8 +18,9 @@ const Header = ({ backLink = '/' }) => {
 		<header className={styles.header}>
 			{isAuth && (
 				<>
-					{pathname == '/' && isAuth ? (
+					{pathname === '/' && isAuth ? (
 						<button
+							aria-label='Go to profile'
 							onClick={() => {
 								navigate('/profile')
 							}}
@@ -28,6 +29,7 @@ const Header = ({ backLink = '/' }) => {
 						</button>
 					) : (
 						<button
+							aria-label='Go back'
 							onClick={() => {
 								navigate(isAuth ? backLink : '/auth')
 							}}
@@ -35,9 +37,9 @@ const Header = ({ backLink = '/' }) => {
 							<IoMdArrowBack fill='#fff' fontSize={29} />
 						</button>
 					)}
+					<Hamburger />
 				</>
 			)}
-			{isAuth && <Hamburger />}
 		</header>
 	)
 }

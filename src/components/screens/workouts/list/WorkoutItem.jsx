@@ -7,7 +7,7 @@ const WorkoutItem = ({ workout, mutate }) => {
 				aria-label='Create new workout'
 				onClick={() => mutate(workout.id)}
 			>
-				<span> {workout.name} </span>
+				<span>{workout.name}</span>
 			</button>
 		</div>
 	)

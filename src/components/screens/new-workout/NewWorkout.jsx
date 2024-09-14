@@ -12,14 +12,14 @@ import { useNewWorkout } from './useNewWorkout'
 
 const NewWorkout = () => {
 	const {
-		isLoading,
-		isSuccess,
+		control,
 		error,
 		errors,
-		onSubmit,
-		register,
 		handleSubmit,
-		control
+		isLoading,
+		isSuccess,
+		onSubmit,
+		register
 	} = useNewWorkout()
 
 	return (
@@ -30,7 +30,7 @@ const NewWorkout = () => {
 			/>
 			<div className='wrapper-inner-page'>
 				{error && <Alert type='error' text={error} />}
-				{isSuccess && <Alert text={'Workout created successfully'} />}
+				{isSuccess && <Alert text='Workout created successfully' />}
 				{isLoading && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
@@ -51,7 +51,7 @@ const NewWorkout = () => {
 					<SelectExercises control={control} />
 
 					{errors?.iconPath && (
-						<div className='error'> {errors?.iconPath?.message} </div>
+						<div className='error'>{errors?.iconPath?.message}</div>
 					)}
 
 					<Button>Create</Button>

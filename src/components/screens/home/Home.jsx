@@ -9,6 +9,7 @@ import styles from './Home.module.scss'
 
 function Home() {
 	const navigate = useNavigate()
+
 	return (
 		<Layout bgImage='/images/home-bg.jpg'>
 			<Button clickHandler={() => navigate('/new-workout')}>New</Button>

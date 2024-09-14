@@ -8,8 +8,9 @@ import styles from './Auth.module.scss'
 import { useAuthPage } from './useAuthPage'
 
 const Auth = () => {
-	const { setType, register, handleSubmit, isLoading, onSubmit, errors } =
+	const { errors, handleSubmit, isLoading, onSubmit, register, setType } =
 		useAuthPage()
+
 	return (
 		<>
 			<Layout heading='Sign in' bgImage='/images/auth-bg.png' />

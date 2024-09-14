@@ -1,14 +1,17 @@
 import { $axios } from '../../api'
 
 export const WORKOUTS = '/workouts'
+
 class WorkoutService {
 	async getAll() {
 		return $axios.get(WORKOUTS)
 	}
+
 	async getById(id) {
 		return $axios.get(`${WORKOUTS}/${id}`)
 	}
-	//name, exerciseIds
+
+	// name, exerciseIds
 	async create(body) {
 		return $axios.post(WORKOUTS, body)
 	}

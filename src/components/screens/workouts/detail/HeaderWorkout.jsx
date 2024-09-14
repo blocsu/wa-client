@@ -15,9 +15,10 @@ const HeaderWorkout = ({ workoutLog, isSuccess }) => {
 			}}
 		>
 			<Header backLink='/workouts' />
+
 			{isSuccess && (
 				<div>
-					<time className={styles.time}> {workoutLog.minute + 'min.'} </time>
+					<time className={styles.time}>{workoutLog.minute + ' min.'}</time>
 					<h1 className={stylesLayout.heading}>{workoutLog.workout.name}</h1>
 				</div>
 			)}

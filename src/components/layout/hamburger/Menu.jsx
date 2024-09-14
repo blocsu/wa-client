@@ -11,11 +11,14 @@ import { menu } from './menu.data'
 
 const Menu = ({ isShow, setIsShow }) => {
 	const { setIsAuth } = useAuth()
+
 	const navigate = useNavigate()
+
 	const logoutHandler = () => {
 		Cookies.remove(TOKEN)
 		setIsAuth(false)
 		setIsShow(false)
+
 		navigate('/auth')
 	}
 

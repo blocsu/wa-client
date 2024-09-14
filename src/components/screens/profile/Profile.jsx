@@ -11,6 +11,7 @@ import { useProfile } from './useProfile'
 
 const Profile = () => {
 	const { data, isLoading } = useProfile()
+
 	return (
 		<>
 			<div
@@ -28,13 +29,12 @@ const Profile = () => {
 					) : (
 						<>
 							<img
-								src='images/header/user.svg'
+								src='/images/header/user.svg'
 								alt='Profile'
 								height='56'
 								draggable={false}
 							/>
-							<h1 className={stylesLayout.heading}>{data?.name}</h1>
-							<h3>{data?.email}</h3>
+							<h1 className={stylesLayout.heading}>{data?.email}</h1>
 						</>
 					)}
 				</div>
@@ -48,7 +48,7 @@ const Profile = () => {
 					{data?.images?.map((image, index) => (
 						<div key={image}>
 							<div className={styles.heading}>
-								{index == 1 ? 'After' : 'Before'}
+								{index === 1 ? 'After' : 'Before'}
 							</div>
 							<img
 								src={image}

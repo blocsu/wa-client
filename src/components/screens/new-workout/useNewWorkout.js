@@ -20,7 +20,10 @@ export const useNewWorkout = () => {
 		body => WorkoutService.create(body),
 		{
 			onSuccess: () => {
-				reset({ name: '', exerciseIds: [] })
+				reset({
+					name: '',
+					exerciseIds: []
+				})
 			}
 		}
 	)
@@ -31,17 +34,18 @@ export const useNewWorkout = () => {
 			exerciseIds: data.exerciseIds.map(ex => ex.value)
 		})
 	}
+
 	return useMemo(
 		() => ({
-			isSuccess,
-			error,
-			isLoading,
 			register,
 			handleSubmit,
 			errors,
 			control,
+			isSuccess,
+			error,
+			isLoading,
 			onSubmit
 		}),
-		[isSuccess, error, isLoading, errors]
+		[errors, isSuccess, error, isLoading]
 	)
 }

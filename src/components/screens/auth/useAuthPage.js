@@ -23,7 +23,9 @@ export const useAuthPage = () => {
 	const navigate = useNavigate()
 
 	useEffect(() => {
-		if (isAuth) navigate('/')
+		if (isAuth) {
+			navigate('/')
+		}
 	}, [isAuth])
 
 	const { mutate, isLoading } = useMutation(

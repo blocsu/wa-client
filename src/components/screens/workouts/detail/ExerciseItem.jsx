@@ -5,6 +5,7 @@ import styles from './Workout.module.scss'
 
 const ExerciseItem = ({ exerciseLog }) => {
 	const navigation = useNavigate()
+
 	return (
 		<div
 			className={cn(styles.item, {
